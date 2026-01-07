@@ -3,11 +3,12 @@
 <!-- ============================
         Slider
     ============================== -->
-<section class="slider">
+@if(isset($page_name) && $page_name == "index")
+    <section class="slider">
     <div class="slick-carousel carousel-arrows-light carousel-dots-light m-slides-0"
          data-slick='{"slidesToShow": 1, "arrows": true, "dots": true, "speed": 700,"fade": true,"cssEase": "linear"}'>
         <div class="slide-item bg-overlay align-v-h">
-            <div class="bg-img"><img src="assets/images/sliders/1.jpg" alt="slide img"></div>
+            <div class="bg-img"><img src="{{ asset('images/front_images/sliders/1.jpg') }}" alt="slide img"></div>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
@@ -18,11 +19,11 @@
                                 with the largest assortment of security cameras and alarm systems installation.
                             </p>
                             <div class="d-flex flex-wrap align-items-center">
-                                <a href="services.html" class="btn btn__primary btn__xl mr-30">
+                                <a href="#" class="btn btn__primary btn__xl mr-30">
                                     <span>Explore Our Services</span>
                                     <i class="icon-arrow-right"></i>
                                 </a>
-                                <a href="services.html" class="btn btn__white btn__xl">
+                                <a href="#" class="btn btn__white btn__xl">
                                     More About Us!
                                 </a>
                             </div>
@@ -31,11 +32,11 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 offset-xl-2 d-none d-xl-block">
                         <div class="cta-banner">
                             <h4 class="cta__title">Custom Alerts For Friends And Family</h4>
-                            <img src="assets/images/cta/1.jpg" alt="cta__img" class="cta__img">
+                            <img src="{{ asset('images/front_images/cta/1.jpg') }}" alt="cta__img" class="cta__img">
                             <p class="cta__desc">Door, window, and Glass Break Detectors designed to monitor and protect home and
                                 family.
                             </p>
-                            <a href="services.html" class="btn btn__primary btn__link">
+                            <a href="#" class="btn btn__primary btn__link">
                                 <i class="icon-arrow-right icon-filled"></i>
                                 <span>Protect Your Home</span>
                             </a>
@@ -45,7 +46,7 @@
             </div><!-- /.container -->
         </div><!-- /.slide-item -->
         <div class="slide-item bg-overlay align-v-h">
-            <div class="bg-img"><img src="assets/images/sliders/2.jpg" alt="slide img"></div>
+            <div class="bg-img"><img src="{{ asset('images/front_images/sliders/2.jpg') }}" alt="slide img"></div>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
@@ -56,11 +57,11 @@
                                 with the largest assortment of security cameras and alarm systems installation.
                             </p>
                             <div class="d-flex flex-wrap align-items-center">
-                                <a href="services.html" class="btn btn__primary btn__xl mr-30">
+                                <a href="#" class="btn btn__primary btn__xl mr-30">
                                     <span>Explore Our Services</span>
                                     <i class="icon-arrow-right"></i>
                                 </a>
-                                <a href="services.html" class="btn btn__white btn__xl">
+                                <a href="#" class="btn btn__white btn__xl">
                                     More About Us!
                                 </a>
                             </div>
@@ -69,11 +70,11 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 offset-xl-2 d-none d-xl-block">
                         <div class="cta-banner">
                             <h4 class="cta__title">Custom Alerts For Friends And Family</h4>
-                            <img src="assets/images/cta/1.jpg" alt="cta__img" class="cta__img">
+                            <img src="{{ asset('images/front_images/cta/1.jpg') }}" alt="cta__img" class="cta__img">
                             <p class="cta__desc">Door, window, and Glass Break Detectors designed to monitor and protect home and
                                 family.
                             </p>
-                            <a href="services.html" class="btn btn__primary btn__link">
+                            <a href="#" class="btn btn__primary btn__link">
                                 <i class="icarron-arrow-right icon-filled"></i>
                                 <span>Protect Your Home</span>
                             </a>
@@ -84,6 +85,7 @@
         </div><!-- /.slide-item -->
     </div><!-- /.carousel -->
 </section><!-- /.slider -->
+@endif
 
 <!-- ========================
   About Layout 1
@@ -123,18 +125,18 @@
                         </div><!-- /.col-md-6 -->
                     </div><!-- /.row -->
                     <div class="d-flex align-items-center flex-wrap mt-10 mb-40">
-                        <a href="services.html" class="btn btn__primary btn__xl my-1 mr-30">
+                        <a href="#" class="btn btn__primary btn__xl my-1 mr-30">
                             <span>Products And Solutions</span>
                             <i class="icon-arrow-right"></i>
                         </a>
-                        <a href="contact-us.html" class="btn btn__secondary btn__xl my-1"> Contact Us</a>
+                        <a href="#" class="btn btn__secondary btn__xl my-1"> Contact Us</a>
                     </div>
                 </div>
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-xl-1">
                 <div class="video-banner-layout2 mb-50">
-                    <img src="assets/images/about/1.jpg" alt="about">
-                    <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+                    <img src="{{ asset('images/front_images/about/1.jpg') }}" alt="about">
+                    <a class="video__btn video__btn-white popup-video" href="#">
                         <div class="video__player">
                             <i class="fa fa-play"></i>
                         </div>
@@ -150,7 +152,7 @@
   Features layout 2
 ========================== -->
 <section class="features-layout2 bg-overlay bg-overlay-gradient pt-130">
-    <div class="bg-img"><img src="assets/images/banners/7.jpg" alt="background"></div>
+    <div class="bg-img"><img src="{{ asset('images/front_images/banners/7.jpg') }}" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -281,11 +283,11 @@
                     installation with a modern approach. Our security camera system installation department is just passionate
                     about security installation</p>
                 <div class="d-flex flex-wrap align-items-center mt-30">
-                    <a href="how-it-works.html" class="btn btn__secondary btn__xl my-1 mr-30">
+                    <a href="#" class="btn btn__secondary btn__xl my-1 mr-30">
                         <span>How Does It Work? </span>
                         <i class="icon-arrow-right"></i>
                     </a>
-                    <a href="services.html" class="btn btn__secondary btn__link my-1">
+                    <a href="#" class="btn btn__secondary btn__link my-1">
                         <i class="icon-arrow-right icon-outlined"></i>
                         <span>Check All Services </span>
                     </a>
@@ -305,7 +307,7 @@
                             <p class="service__desc">Clever security system connects your security, CCTV, lights, locks and more,
                                 for true seamless automation and control.
                             </p>
-                            <a href="services-single.html" class="btn btn__primary  btn__link">
+                            <a href="#" class="btn btn__primary  btn__link">
                                 <i class="icon-arrow-right icon-filled"></i>
                                 <span>Read More</span>
                             </a>
@@ -323,7 +325,7 @@
                             <p class="service__desc">We're industry leaders in the design, installation of quality fire alarm and
                                 provide systems enhance security and ensure...
                             </p>
-                            <a href="services-single.html" class="btn btn__primary btn__link">
+                            <a href="#" class="btn btn__primary btn__link">
                                 <i class="icon-arrow-right icon-filled"></i>
                                 <span>Read More</span>
                             </a>
@@ -341,7 +343,7 @@
                             <p class="service__desc">Whether you’re home or away, we make smart simple, have a remote access and
                                 control everything from lights, locks,...
                             </p>
-                            <a href="services-single.html" class="btn btn__primary  btn__link">
+                            <a href="#" class="btn btn__primary  btn__link">
                                 <i class="icon-arrow-right icon-filled"></i>
                                 <span>Read More</span>
                             </a>
@@ -359,7 +361,7 @@
                             <p class="service__desc">Effective and simple-to-use door access control systems, we offer a decade of
                                 experience in planning, customizing...
                             </p>
-                            <a href="services-single.html" class="btn btn__primary  btn__link">
+                            <a href="#" class="btn btn__primary  btn__link">
                                 <i class="icon-arrow-right icon-filled"></i>
                                 <span>Read More</span>
                             </a>
@@ -374,10 +376,10 @@
                             <div class="cta__icon"><i class="icon-alert"></i></div>
                             <p class="cta__desc font-weight-bold my-2">As the leader in home security, we can help you customize a
                                 home security system to meet your safety needs.
-                                <a href="contact-us.html" class="text-underlined">Schedule A Visit</a>
+                                <a href="#" class="text-underlined">Schedule A Visit</a>
                             </p>
                         </div>
-                        <a href="get-quote.html" class="btn btn__secondary btn__outlined btn__xl">
+                        <a href="#" class="btn btn__secondary btn__outlined btn__xl">
                             <span>Get A Free Quote</span>
                             <i class="icon-arrow-right"></i>
                         </a>
@@ -426,7 +428,7 @@
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-xl-1">
                 <div class="about__img">
-                    <img src="assets/images/about/4.jpg" alt="about">
+                    <img src="{{ asset('images/front_images/about/4.jpg') }}" alt="about">
                     <div class="cta-banner">
                         <h3 class="cta__subtitle">Protect Your Home!</h3>
                         <h4 class="cta__title">All The Essentials To Help Give You Peace Of Mind.</h4>
@@ -450,7 +452,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
                 <div class="about__img">
-                    <img src="assets/images/about/5.jpg" alt="about">
+                    <img src="{{ asset('images/front_images/about/5.jpg') }}" alt="about">
                     <div class="cta-banner cta-banner-primary">
                         <h3 class="cta__subtitle">Just Don’t Worry.</h3>
                         <h4 class="cta__title">We Take Care Of Everything For Your Home!</h4>
@@ -534,7 +536,7 @@
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-xl-1">
                 <div class="video-banner-layout3 mb-50">
-                    <img src="assets/images/about/6.jpg" alt="about">
+                    <img src="{{ asset('images/front_images/about/6.jpg') }}" alt="about">
                     <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
                         <div class="video__player">
                             <i class="fa fa-play"></i>
@@ -569,7 +571,7 @@
                         <!-- portfolio Item #1 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/1.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/1.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -597,7 +599,7 @@
                         <!-- portfolio Item #2 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/2.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/2.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -625,7 +627,7 @@
                         <!-- portfolio Item #3 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/3.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/3.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -653,7 +655,7 @@
                         <!-- portfolio Item #4 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/4.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/4.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -681,7 +683,7 @@
                         <!-- portfolio Item #5 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/5.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/5.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -708,7 +710,7 @@
                         <!-- portfolio Item #6 -->
                         <div class="portfolio-item">
                             <div class="portfolio__img">
-                                <img src="assets/images/portfolio/6.jpg" alt="portfolio img">
+                                <img src="{{ asset('images/front_images/portfolio/6.jpg') }}" alt="portfolio img">
                             </div><!-- /.portfolio-img -->
                             <div class="portfolio__body">
                                 <div class="portfolio__cat">
@@ -756,19 +758,19 @@
                 <div class="slick-carousel"
                      data-slick='{"slidesToShow": 4, "arrows": false, "dots": false, "autoplay": true,"autoplaySpeed": 2000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 3}}, {"breakpoint": 767, "settings": {"slidesToShow": 2}}, {"breakpoint": 480, "settings": {"slidesToShow": 2}}]}'>
                     <div class="client">
-                        <img src="assets/images/clients/8.png" alt="client">
+                        <img src="{{ asset('images/front_images/clients/8.png') }}" alt="client">
                     </div><!-- /.client -->
                     <div class="client">
-                        <img src="assets/images/clients/9.png" alt="client">
+                        <img src="{{ asset('images/front_images/clients/9.png') }}" alt="client">
                     </div><!-- /.client -->
                     <div class="client">
-                        <img src="assets/images/clients/10.png" alt="client">
+                        <img src="{{ asset('images/front_images/clients/10.png') }}" alt="client">
                     </div><!-- /.client -->
                     <div class="client">
-                        <img src="assets/images/clients/11.png" alt="client">
+                        <img src="{{ asset('images/front_images/clients/11.png') }}" alt="client">
                     </div><!-- /.client -->
                     <div class="client">
-                        <img src="assets/images/clients/9.png" alt="client">
+                        <img src="{{ asset('images/front_images/clients/9.png') }}" alt="client">
                     </div><!-- /.client -->
                 </div><!-- /.carousel -->
             </div><!-- /.col-lg-6 -->
@@ -780,7 +782,7 @@
     contact layout 3
 =========================== -->
 <section class="contact-layout3 bg-overlay bg-overlay-primary bg-overlay-primary-gradient">
-    <div class="bg-img"><img src="assets/images/banners/5.jpg" alt="banner"></div>
+    <div class="bg-img"><img src="{{ asset('images/front_images/banners/5.jpg') }}" alt="banner"></div>
     <div class="container">
         <div class="contact-panel p-0">
             <div class="row">
@@ -1043,8 +1045,8 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="post-item">
                     <div class="post__img">
-                        <a href="blog-single-post.html">
-                            <img src="assets/images/blog/1.jpg" alt="post image" loading="lazy">
+                        <a href="#">
+                            <img src="{{ asset('images/front_images/blog/1.jpg') }}" alt="post image" loading="lazy">
                         </a>
                         <div class="post__meta-cat">
                             <a href="#">Home Security</a>
@@ -1052,7 +1054,7 @@
                     </div><!-- /.post__img -->
                     <div class="post__body">
                         <h4 class="post__title">
-                            <a href="blog-single-post.html">Three Important Things You Must Look For While Choosing Home Security
+                            <a href="#">Three Important Things You Must Look For While Choosing Home Security
                                 System</a>
                         </h4>
                         <div class="post__meta d-flex">
@@ -1062,7 +1064,7 @@
                         <p class="post__desc">It is natural if you feel the need for improvising on your home’s security system.
                             Mostly, homes are unguarded or have security guards. Now, in the age of technology advancement...
                         </p>
-                        <a href="blog-single-post.html" class="btn btn__secondary btn__outlined">
+                        <a href="#" class="btn btn__secondary btn__outlined">
                             <i class="icon-arrow-right"></i>
                             <span>Read More</span>
                         </a>
@@ -1073,8 +1075,8 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="post-item">
                     <div class="post__img">
-                        <a href="blog-single-post.html">
-                            <img src="assets/images/blog/2.jpg" alt="post image" loading="lazy">
+                        <a href="#">
+                            <img src="{{ asset('images/front_images/blog/2.jpg') }}" alt="post image" loading="lazy">
                         </a>
                         <div class="post__meta-cat">
                             <a href="#">Solutions</a>
@@ -1083,7 +1085,7 @@
                     </div><!-- /.post__img -->
                     <div class="post__body">
                         <h4 class="post__title">
-                            <a href="blog-single-post.html">How Non IT Roles Can Use Security Solutions to Solve All Imerged
+                            <a href="#">How Non IT Roles Can Use Security Solutions to Solve All Imerged
                                 Business Problems!</a>
                         </h4>
                         <div class="post__meta d-flex">
@@ -1093,7 +1095,7 @@
                         <p class="post__desc">It is natural if you feel the need for improvising on your home’s security system.
                             Mostly, homes are unguarded or have security guards. Now, in the age of technology advancement...
                         </p>
-                        <a href="blog-single-post.html" class="btn btn__secondary btn__outlined">
+                        <a href="#" class="btn btn__secondary btn__outlined">
                             <i class="icon-arrow-right"></i>
                             <span>Read More</span>
                         </a>
@@ -1104,8 +1106,8 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="post-item">
                     <div class="post__img">
-                        <a href="blog-single-post.html">
-                            <img src="assets/images/blog/3.jpg" alt="post image" loading="lazy">
+                        <a href="#">
+                            <img src="{{ asset('images/front_images/blog/3.jpg') }}" alt="post image" loading="lazy">
                         </a>
                         <div class="post__meta-cat">
                             <a href="#">Solutions</a>
@@ -1114,7 +1116,7 @@
                     </div><!-- /.post__img -->
                     <div class="post__body">
                         <h4 class="post__title">
-                            <a href="blog-single-post.html">Three Important Things You Must Look For While Choosing Home Security
+                            <a href="#">Three Important Things You Must Look For While Choosing Home Security
                                 System</a>
                         </h4>
                         <div class="post__meta d-flex">
@@ -1124,7 +1126,7 @@
                         <p class="post__desc">It is natural if you feel the need for improvising on your home’s security system.
                             Mostly, homes are unguarded or have security guards. Now, in the age of technology advancement...
                         </p>
-                        <a href="blog-single-post.html" class="btn btn__secondary btn__outlined">
+                        <a href="#" class="btn btn__secondary btn__outlined">
                             <i class="icon-arrow-right"></i>
                             <span>Read More</span>
                         </a>
@@ -1134,7 +1136,7 @@
         </div><!-- /.row -->
         <div class="row">
             <div class="col-12 text-center">
-                <a href="services.html" class="btn btn__secondary btn__link">
+                <a href="#" class="btn btn__secondary btn__link">
                     <span>Check All Blog Posts</span>
                     <i class="icon-arrow-right icon-outlined"></i>
                 </a>

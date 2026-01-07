@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +10,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-    <link rel="stylesheet" href="assets/css/libraries.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ url('css/front_css/libraries.css') }}">
+    <link rel="stylesheet" href="{{ url('css/front_css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
@@ -41,10 +41,9 @@
     </form>
 </div><!-- /. search-popup -->
 
-<!--<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>-->
-<script src="assets/js/jquery-3.5.1.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{ url('js/front_js/jquery-3.5.1.min.js') }}"></script>
+<script src="{{ url('js/front_js/plugins.js') }}"></script>
+<script src="{{ url('js/front_js/main.js') }}"></script>
 <!--<script src="fontawesome/js/all.js"></script>-->
 <!--<script src="fontawesome/js/brands.js"></script>-->
 <!--<script src="fontawesome/js/fontawesome.js"></script>-->
