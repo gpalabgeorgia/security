@@ -31,16 +31,16 @@ class AdminController extends Controller
                 'password' => 'required',
             ];
             $customMessages = [
-                'email.required' => 'Адрес почты обьязателен!',
-                'email.email' => 'Валидный адрес почты обьязателен!',
-                'password.required' => 'Пароль обьязателен!',
+                'email.required' => 'ელ.ფოსტის მისამართი სავალდებულოა!',
+                'email.email' => 'ვალიდური ელ.ფოსტის მისამართი სავალდებულოა!',
+                'password.required' => 'პაროლი სავალდებულოა!',
             ];
             $this->validate($request, $rules, $customMessages);
 
             if(Auth::guard('admin')->attempt(['email'=>$data['email'], 'password'=>$data['password']])) {
                 return redirect('admin/dashboard');
             }else {
-                Session::flash('error_message', 'Неправильное имя или пароль!');
+                Session::flash('error_message', 'არასწორი სახელი ან პაროლი!');
                 return redirect()->back();
             }
         }
@@ -69,12 +69,12 @@ class AdminController extends Controller
                 // Check if new and confirm password is matching
                 if($data['new_pwd']==$data['confirm_pwd']) {
                     Admin::where('id', Auth::guard('admin')->user()->id)->update(['password'=>bcrypt($data['new_pwd'])]);
-                    Session::flash('success_message', 'Пароль успешно обновился!');
+                    Session::flash('success_message', 'პაროლი წარმატებით გაახლდა!');
                 }else {
-                    Session::flash('error_message', 'Новый пароль и повторение пароля не совпадают!');
+                    Session::flash('error_message', 'ახალი პაროლი და ახალი პაროლის გამეორება არ ემთხვევა!');
                 }
             }else {
-                Session::flash('error_message', 'Ваш текущий пароль неверный!');
+                Session::flash('error_message', 'მიმდინარე პაროლი არასწორია!');
             }
             return redirect()->back();
         }
@@ -90,11 +90,11 @@ class AdminController extends Controller
                 'admin_image' => 'image'
             ];
             $customMessages = [
-                'admin_name.required' => 'Имя и Фамилия объязательны',
-                'admin_name.alpha' => 'Валидные Имя и Фамилия объязательны',
-                'admin_mobile.required' => 'Номер телефона объязателен',
-                'admin_mobile.numeric' => 'Введите валидный номер телефона',
-                'admin_image.image' => 'Загрузите валидное фото',
+                'admin_name.required' => 'სახელი და გვარი სავალდებულოა',
+                'admin_name.alpha' => 'ვალიდური სახელი და გვარი სავალდებულოა',
+                'admin_mobile.required' => 'ტელეფონის ნომერი სავალდებულოა',
+                'admin_mobile.numeric' => 'ვალიდური ტელეფონის ნომერი სავალდებულოა',
+                'admin_image.image' => 'ატვირთეთ ვალიდური ფოტო',
             ];
             $this->validate($request,$rules,$customMessages);
 
@@ -118,7 +118,7 @@ class AdminController extends Controller
 
             // Update Admin Details
             Admin::where('email', Auth::guard('admin')->user()->email)->update(['name'=>$data['admin_name'], 'mobile'=>$data['admin_mobile'], 'image'=>$imageName]);
-            session::flash('success_message', 'Детальная информация Администратора обновлена');
+            session::flash('success_message', 'ადმინისტრატორის დეტალური ინფორმაცია წარმატებით გაახლდა');
             return redirect()->back();
         }
         return view('admin.update_admin_details');

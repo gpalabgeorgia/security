@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin | Вход</title>
+    <title>Admin | შესვლა</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,12 +17,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>Вход</a>
+        <a href="#"><b>Admin</b> შესვლა</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Войдите в систему</p>
+            <p class="login-box-msg">შედით სისტემაში</p>
 
             @if(Session::has('error_message'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -44,7 +44,7 @@
 
             <form action="{{ url('/admin') }}" method="post">@csrf
                 <div class="input-group mb-3">
-                    <input name="email" id="email" type="email" class="form-control" placeholder="эл.почта">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="ელ.ფოსტა">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input name="password" id="password" type="password" class="form-control" placeholder="пароль">
+                    <input name="password" id="password" type="password" class="form-control" placeholder="პაროლი">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -62,7 +62,7 @@
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                        <button type="submit" class="btn btn-primary btn-block">შესვლა</button>
                     </div>
                     <!-- /.col -->
                 </div>

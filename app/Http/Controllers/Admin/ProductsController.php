@@ -28,7 +28,7 @@ class ProductsController extends Controller
     public function updateProductStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;
@@ -41,7 +41,7 @@ class ProductsController extends Controller
     public function updateAttributeStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;
@@ -53,30 +53,30 @@ class ProductsController extends Controller
 
     public function deleteProduct($id) {
         Product::where('id', $id)->delete();
-        $message = 'Продукт удалился!';
+        $message = 'პროდუქტი წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }
 
     public function deleteAttribute($id) {
         ProductsAttributes::where('id', $id)->delete();
-        $message = 'Аттрибут удалился!';
+        $message = 'ატრიბუტი წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }
 
     public function addEditProduct(Request $request, $id=null) {
         if($id=="") {
-            $title = "Добавить продукт!";
+            $title = "პროდუქტის დამატება!";
             $product = new Product;
             $productdata = array();
-            $message = "Продукт успешно добавился!";
+            $message = "პროდუქტი წარმატებით დაემატა!";
         }else {
-            $title = "Редактировать продукт!";
+            $title = "პროდუქტის რედაქტირება!";
             $productdata = Product::find($id);
             $productdata = json_decode(json_encode($productdata), true);
             $product = Product::find($id);
-            $message = "Продукт успешно обновился!";
+            $message = "პროდუქტი წარმატებით გაახლდა!";
         }
         if($request->isMethod('post')) {
             $data = $request->all();
@@ -91,15 +91,15 @@ class ProductsController extends Controller
                 'product_color' => 'required|regex:/^[\pL\s\-]+$/u',
             ];
             $customMessages = [
-                'category_id.required' => 'Название категории объязательно',
-                'product_name.required' => 'Название продукта объязательна',
-                'product_name.regex' => 'Валидное название объязательно',
-                'product_code.required' => 'Код продукта объязателен',
-                'product_code.regex' => 'Валидный код объязателен',
-                'product_price.required' => 'Цена продукта объязательно',
-                'product_price.numeric' => 'Валидная цена объязательна',
-                'product_color.required' => 'Цвет продукта объязателен',
-                'product_color.regex' => 'Валидный цвет объязателен',
+                'category_id.required' => 'კატეგორიის სახელი სავალდებულოა',
+                'product_name.required' => 'პროდუქტის სახელი სავალდებულოა',
+                'product_name.regex' => 'ვალიდური სახელი სავალდებულოა',
+                'product_code.required' => 'პროდუქტის კოდი სავალდებულოა',
+                'product_code.regex' => 'ვალიდური კოდი სავალდებულოა',
+                'product_price.required' => 'პროდუქტის ფასი სავალდებულოა',
+                'product_price.numeric' => 'ვალიდური ფასი სავალდებულოა',
+                'product_color.required' => 'პროდუქტის ფერი სავალდებულოა',
+                'product_color.regex' => 'ვალიდური ფერი სავალდებულოა',
             ];
             $this->validate($request, $rules, $customMessages);
 
@@ -257,7 +257,7 @@ class ProductsController extends Controller
 
         // Delete product image from categories table
         Product::where('id', $id)->update(['main_image'=>'']);
-        $message = 'Фотография продукта удалилась!';
+        $message = 'პროდუქტის ფოტო წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }
@@ -276,7 +276,7 @@ class ProductsController extends Controller
 
         // Delete product video from categories table
         Product::where('id', $id)->update(['product_video'=>'']);
-        $message = 'Видео продукта удалилась!';
+        $message = 'პროდუქტის ვიდეო წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }
@@ -289,14 +289,14 @@ class ProductsController extends Controller
                     // SKU already exist check
                     $attrCountSKU = ProductsAttributes::where('sku', $value)->count();
                     if($attrCountSKU>0) {
-                        $message = 'SKU код уже существует. Подберите другой код!';
+                        $message = 'SKU კოდი უკვე არსებობს. შეიყვანეთ სხვა კოდი!';
                         session::flash('error_message', $message);
                         return redirect()->back();
                     }
                     // Size already exist check
                     $attrCountSize = ProductsAttributes::where(['product_id'=>$id, 'size'=>$data['size'][$key]])->count();
                     if($attrCountSize>0) {
-                        $message = 'Размер уже существует. Подберите другой размер!';
+                        $message = 'ზომა უკვე არსებობს. შეიყვანეთ სხვა ზომა!';
                         session::flash('error_message', $message);
                         return redirect()->back();
                     }
@@ -310,13 +310,13 @@ class ProductsController extends Controller
                     $attribute->save();
                 }
             }
-            $success_message = 'Аттрибут продукта успешно добавлен!';
+            $success_message = 'პროდუქტის ატრიბუტი წარმატებით დაემატა!';
             session::flash('success_message', $success_message);
             return redirect()->back();
         }
         $productdata = Product::select('id', 'product_name', 'product_code', 'product_color', 'main_image')->with('attributes')->find($id);
         $productdata = json_decode(json_encode($productdata), true);
-        $title = 'Атрибуты Продукта';
+        $title = 'პროდუქტის ატრიბუტები';
         return view('admin.products.add_attributes')->with(compact('productdata', 'title'));
     }
 
@@ -328,7 +328,7 @@ class ProductsController extends Controller
                     ProductsAttributes::where(['id'=>$data['attrId'][$key]])->update(['price'=>$data['price'][$key], 'stock'=>$data['stock'][$key]]);
                 }
             }
-            $message = 'Атрибуты продукта успешно обновились!';
+            $message = 'პროდუქტის ატრიბუტები წარმატებით გაახლდა!';
             session::flash('success_message', $message);
             return redirect()->back();
         }
@@ -360,7 +360,7 @@ class ProductsController extends Controller
                     $productImage->status = 1;
                     $productImage->save();
                 }
-                $message = "Фотографии продукта успешно добавились!";
+                $message = "პროდუქტის ფოტოები წარმატებით დაემატა!";
                 session::flash('success_message', $message);
                 return redirect()->back();
             }
@@ -368,14 +368,14 @@ class ProductsController extends Controller
         $productdata = Product::with('images')->select('id','product_name','product_code','product_color','main_image')->find($id);
         $productdata = json_decode(json_encode($productdata), true);
         // echo "<pre>";print_r($productdata); die;
-        $title = "Фотографии продукта";
+        $title = "პროდუქტის ფოტოები";
         return view('admin.products.add_images')->with(compact('productdata', 'title'));
     }
 
     public function updateImageStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;
@@ -409,7 +409,7 @@ class ProductsController extends Controller
 
         // Delete product image from categories table
         ProductsImage::where('id', $id)->delete();
-        $message = 'Фотография продукта удалилась!';
+        $message = 'პროდუქტის ფოტო წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }

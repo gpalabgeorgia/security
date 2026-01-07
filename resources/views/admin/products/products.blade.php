@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Продукты</h1>
+                        <h1>პროდუქტები</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                            <li class="breadcrumb-item active">Продукты</li>
+                            <li class="breadcrumb-item"><a href="#">მთავარი</a></li>
+                            <li class="breadcrumb-item active">პროდუქტები</li>
                         </ol>
                     </div>
                 </div>
@@ -30,22 +30,22 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Продукты</h3>
-                                <a href="{{ url('admin/add-edit-product') }}" style="max-width: 150px; float: right; display: inline-block;" class="btn btn-block btn-success">Добавить</a>
+                                <h3 class="card-title">პროდუქტები</h3>
+                                <a href="{{ url('admin/add-edit-product') }}" style="max-width: 150px; float: right; display: inline-block;" class="btn btn-block btn-success">დამატება</a>
                             </div>
                             <div class="card-body">
                                 <table id="products" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Название</th>
-                                        <th>Код</th>
-                                        <th>Цвет</th>
-                                        <th>Фото</th>
-                                        <th>Категория</th>
-                                        <th>Секция</th>
-                                        <th>Статус</th>
-                                        <th>Действия</th>
+                                        <th>სახელი</th>
+                                        <th>კოდი</th>
+                                        <th>ფერი</th>
+                                        <th>ფოტო</th>
+                                        <th>კატეგორია</th>
+                                        <th>სექცია</th>
+                                        <th>სტატუსი</th>
+                                        <th>მოქმედებები</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -65,19 +65,19 @@
                                             <td>{{ $product->section->name }}</td>
                                             <td>
                                                 @if($product->status==1)
-                                                    <a class="updateProductStatus" id="product-{{ $product->id }}" product_id="{{ $product->id }}" href="javascript:void(0);">Активный</a>
+                                                    <a class="updateProductStatus" id="product-{{ $product->id }}" product_id="{{ $product->id }}" href="javascript:void(0);">Active</a>
                                                 @else
-                                                    <a class="updateProductStatus" id="product-{{ $product->id }}" product_id="{{ $product->id }}" href="javascript:void(0);">Неактивный</a>
+                                                    <a class="updateProductStatus" id="product-{{ $product->id }}" product_id="{{ $product->id }}" href="javascript:void(0);">Inactive</a>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a title="Добавить/Редактировать Аттрибуты" href="{{ url("admin/add-attributes/".$product->id) }}"><i class="fas fa-plus"></i></a>
+                                                <a title="ატრიბუტების დამატება/რედაქტირება" href="{{ url("admin/add-attributes/".$product->id) }}"><i class="fas fa-plus"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a title="Добавить Изображения" href="{{ url("admin/add-images/".$product->id) }}"><i class="fas fa-plus-circle"></i></a>
+                                                <a title="ფოტოების დამატება" href="{{ url("admin/add-images/".$product->id) }}"><i class="fas fa-plus-circle"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a title="Редактировать Продукт" href="{{ url("admin/add-edit-product/".$product->id) }}"><i class="fas fa-edit"></i></a>
+                                                <a title="პროდუქტის რედაქტირება" href="{{ url("admin/add-edit-product/".$product->id) }}"><i class="fas fa-edit"></i></a>
                                                 &nbsp;&nbsp;
-                                                <a title="Удалить Продукт" href="javascript:void(0)" class="confirmDelete" record="product" recordid="{{ $product->id }}"><i class="fas fa-trash"></i></a>
+                                                <a title="პროდუქტის წაშლა" href="javascript:void(0)" class="confirmDelete" record="product" recordid="{{ $product->id }}"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Секции</h1>
+                        <h1>სექციები</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                            <li class="breadcrumb-item active">Секции</li>
+                            <li class="breadcrumb-item"><a href="#">მთავარი</a></li>
+                            <li class="breadcrumb-item active">სექციები</li>
                         </ol>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Название</th>
-                                        <th>Статус</th>
+                                        <th>დასახელება</th>
+                                        <th>სტატუსი</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -37,9 +37,9 @@
                                             <td>{{ $section->name }}</td>
                                             <td>
                                                 @if($section->status==1)
-                                                    <a class="updateSectionStatus" id="section-{{ $section->id }}" section_id="{{ $section->id }}" href="javascript:void(0);">Активный</a>
+                                                    <a class="updateSectionStatus" id="section-{{ $section->id }}" section_id="{{ $section->id }}" href="javascript:void(0);">Active</a>
                                                 @else
-                                                    <a class="updateSectionStatus" id="section-{{ $section->id }}" section_id="{{ $section->id }}" href="javascript:void(0);">Неактивный</a>
+                                                    <a class="updateSectionStatus" id="section-{{ $section->id }}" section_id="{{ $section->id }}" href="javascript:void(0);">Inactive</a>
                                                 @endif
                                             </td>
                                         </tr>

@@ -11,7 +11,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Доска</a></li>
-                            <li class="breadcrumb-item active">Фотографии Продукта</li>
+                            <li class="breadcrumb-item active">პროდუქტის ფოტოები</li>
                         </ol>
                     </div>
                 </div>
@@ -66,13 +66,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="product_name">Название продукта: </label> &nbsp;{{ $productdata['product_name'] }}
+                                        <label for="product_name">პროდუქტის სახელი: </label> &nbsp;{{ $productdata['product_name'] }}
                                     </div>
                                     <div class="form-group">
-                                        <label for="product_code">Код Продукта: </label> &nbsp;{{ $productdata['product_code'] }}
+                                        <label for="product_code">პროდუქტის კოდი: </label> &nbsp;{{ $productdata['product_code'] }}
                                     </div>
                                     <div class="form-group">
-                                        <label for="product_name">Цвет Продукта: </label> &nbsp;{{ $productdata['product_color'] }}
+                                        <label for="product_name">პროდუქტის ფერი: </label> &nbsp;{{ $productdata['product_color'] }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -92,22 +92,22 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Добавить фотографии</button>
+                            <button type="submit" class="btn btn-primary">ფოტოების დამატება</button>
                         </div>
                     </div>
                 </form>
                 <form action="{{ url('admin/edit-images/'.$productdata['id']) }}" name="editImageForm" id="editImageForm" method="post">@csrf
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Добавленные фотографии</h3>
+                            <h3 class="card-title">დამატებული ფოტოები</h3>
                         </div>
                         <div class="card-body">
                             <table id="products" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Фото</th>
-                                    <th>Действия</th>
+                                    <th>ფოტო</th>
+                                    <th>მოქმედებები</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -120,12 +120,12 @@
                                         </td>
                                         <td>
                                             @if($image['status']==1)
-                                                <a class="updateImageStatus" id="image-{{ $image['id'] }}" image_id="{{ $image['id'] }}" href="javascript:void(0)">Активный</a>
+                                                <a class="updateImageStatus" id="image-{{ $image['id'] }}" image_id="{{ $image['id'] }}" href="javascript:void(0)">Active</a>
                                             @else
-                                                <a class="updateImageStatus" id="image-{{ $image['id'] }}" image_id="{{ $image['id'] }}" href="javascript:void(0)">Неактивный</a>
+                                                <a class="updateImageStatus" id="image-{{ $image['id'] }}" image_id="{{ $image['id'] }}" href="javascript:void(0)">Inactive</a>
                                             @endif
                                             &nbsp;&nbsp;
-                                            <a title="Удалить Фотографии" href="javascript:void(0)" class="confirmDelete" record="image" recordid="{{ $image['id'] }}"><i class="fas fa-trash"></i></a>
+                                            <a title="ფოტოების წაშლა" href="javascript:void(0)" class="confirmDelete" record="image" recordid="{{ $image['id'] }}"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -133,7 +133,7 @@
                             </table>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Обновить Фотографии</button>
+                            <button type="submit" class="btn btn-primary">ფოტოების გაახლება</button>
                         </div>
                 </form>
             </div>

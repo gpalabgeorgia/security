@@ -1,7 +1,7 @@
 <div class="form-group">
-    <label>Выберите уровень категории</label>
+    <label>აირჩიეთ კატეგორიის დონე</label>
     <select name="parent_id" id="parent_id"  class="form-control select2" style="width: 100%;">
-        <option value="0" @if(isset($categorydata['parent_id']) && $categorydata['parent_id']==0) selected="" @endif>Главная категория</option>
+        <option value="0" @if(isset($categorydata['parent_id']) && $categorydata['parent_id']==0) selected="" @endif>მთავარი კატეგორია</option>
         @if(!empty($getCategories))
             @foreach($getCategories as $category)
                 <option value="{{ $category['id'] }}" @if(isset($categorydata['parent_id']) && $categorydata['parent_id']==$category['id']) selected="" @endif>{{ $category['category_name'] }}</option>

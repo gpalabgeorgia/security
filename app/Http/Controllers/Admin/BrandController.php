@@ -18,7 +18,7 @@ class BrandController extends Controller
     public function updateBrandStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;
@@ -31,13 +31,13 @@ class BrandController extends Controller
     public function addEditBrand(Request $request, $id=null) {
         Session::put('page', 'brands');
         if($id=="") {
-            $title = "Добавить Бренд";
+            $title = "ბრენდის დამატება";
             $brand = new Brand;
-            $message = 'Бренд успешно добавился!';
+            $message = 'ბრენდი წარმატებით დაემატა!';
         }else {
-            $title = 'Редактировать Бренд';
+            $title = 'ბრენდის რედაქტირება';
             $brand = Brand::find($id);
-            $message = 'Бренд успешно обновился!';
+            $message = 'ბრენდი წარმატებით გაახლდა!';
         }
         if($request->isMethod('post')) {
             $data = $request->all();
@@ -48,8 +48,8 @@ class BrandController extends Controller
                 'brand_name' => 'required|regex:/^[\pL\s\-]+$/u',
             ];
             $customMessages = [
-                'brand_name.required' => 'Название Бренда объязательно',
-                'brand_name.regex' => 'Валидное название объязательно',
+                'brand_name.required' => 'ბრენდის სახელი სავალდებულოა',
+                'brand_name.regex' => 'ვალიდური სახელი სავალდებულოა',
             ];
             $this->validate($request, $rules, $customMessages);
 
@@ -64,7 +64,7 @@ class BrandController extends Controller
     }
     public function deleteBrand($id) {
         Brand::where('id', $id)->delete();
-        $message = 'Бренд удалился!';
+        $message = 'ბრენდი წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }

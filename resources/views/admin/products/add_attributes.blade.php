@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Каталог</h1>
+                        <h1>კატალოგი</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                            <li class="breadcrumb-item active">Атрибуты Продукта</li>
+                            <li class="breadcrumb-item"><a href="#">მთავარი</a></li>
+                            <li class="breadcrumb-item active">პროდუქტის ატრიბუტები</li>
                         </ol>
                     </div>
                 </div>
@@ -61,13 +61,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="product_name">Название Продукта:</label>&nbsp;&nbsp;{{ $productdata['product_name'] }}
+                                        <label class="product_name">პროდუქტის სახელი:</label>&nbsp;&nbsp;{{ $productdata['product_name'] }}
                                     </div>
                                     <div class="form-group">
-                                        <label class="product_code">Код Продукта:</label>&nbsp;&nbsp;{{ $productdata['product_code'] }}
+                                        <label class="product_code">პროდუქტის კოდი:</label>&nbsp;&nbsp;{{ $productdata['product_code'] }}
                                     </div>
                                     <div class="form-group">
-                                        <label class="product_color">Цвет Продукта:</label>&nbsp;&nbsp;{{ $productdata['product_color'] }}
+                                        <label class="product_color">პროდუქტის ფერი:</label>&nbsp;&nbsp;{{ $productdata['product_color'] }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -79,11 +79,11 @@
                                     <div class="form-group">
                                         <div class="field_wrapper">
                                             <div>
-                                                <input id="size" type="text" name="size[]" value="" placeholder="Размер" style="width: 120px;" required=""/>
+                                                <input id="size" type="text" name="size[]" value="" placeholder="ზომა" style="width: 120px;" required=""/>
                                                 <input id="sku" type="text" name="sku[]" value="" placeholder="SKU" style="width: 120px;" required=""/>
-                                                <input id="price" type="number" name="price[]" value="" placeholder="Цена" style="width: 120px;" required=""/>
-                                                <input id="stock" type="number" name="stock[]" value="" placeholder="Количество" style="width: 120px;" required=""/>
-                                                <a href="javascript:void(0);" class="add_button" title="Add field">Добавить</a>
+                                                <input id="price" type="number" name="price[]" value="" placeholder="ფასი" style="width: 120px;" required=""/>
+                                                <input id="stock" type="number" name="stock[]" value="" placeholder="რაოდენობა" style="width: 120px;" required=""/>
+                                                <a href="javascript:void(0);" class="add_button" title="Add field">დამატება</a>
                                             </div>
                                         </div>
                                     </div>
@@ -91,25 +91,25 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Согласиться</button>
+                            <button type="submit" class="btn btn-primary">დადასტურება</button>
                         </div>
                     </div>
                 </form>
                 <form name="editAttributeForm" id="editAttributeForm" method="post" action="{{ url('admin/edit-attributes/'.$productdata['id']) }}">@csrf
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Добавить Аттрибуты</h3>
+                            <h3 class="card-title">ატრიბუტის დამატება</h3>
                         </div>
                         <div class="card-body">
                             <table id="products" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Размер</th>
-                                    <th>SKU Код</th>
-                                    <th>Цена</th>
-                                    <th>Количество</th>
-                                    <th>Действия</th>
+                                    <th>ზომა</th>
+                                    <th>SKU კოდი</th>
+                                    <th>ფასი</th>
+                                    <th>რაოდენობა</th>
+                                    <th>მოქმედებები</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -127,9 +127,9 @@
                                         </td>
                                         <td>
                                             @if($attribute['status']==1)
-                                                <a class="updateAttributeStatus" id="attribute-{{ $attribute['id'] }}" attribute_id="{{ $attribute['id'] }}" href="javascript:void(0);">Активный</a>
+                                                <a class="updateAttributeStatus" id="attribute-{{ $attribute['id'] }}" attribute_id="{{ $attribute['id'] }}" href="javascript:void(0);">Active</a>
                                             @else
-                                                <a class="updateAttributeStatus" id="attribute-{{ $attribute['id'] }}" attribute_id="{{ $attribute['id'] }}" href="javascript:void(0);">Неактивный</a>
+                                                <a class="updateAttributeStatus" id="attribute-{{ $attribute['id'] }}" attribute_id="{{ $attribute['id'] }}" href="javascript:void(0);">Inactive</a>
                                             @endif
                                             &nbsp;&nbsp;
                                             <a title="Удалить Аттрибут" href="javascript:void(0)" class="confirmDelete" record="attribute" recordid="{{ $attribute['id'] }}"><i class="fas fa-trash"></i></a>
@@ -140,7 +140,7 @@
                             </table>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Обновить Аттрибуты</button>
+                            <button type="submit" class="btn btn-primary">ატრიბუტების გაახლება</button>
                         </div>
                     </div>
                 </form>

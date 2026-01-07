@@ -11,6 +11,6 @@ class Section extends Model
     protected $guard = 'sections';
 
     public function categories() {
-        return $this->hasMany('App\Models\Category', 'section_id')->where(['parent_id'=>'Родительская', 'status'=>1])->with('subcategories');
+        return $this->hasMany('App\Models\Category', 'section_id')->where(['parent_id'=>'მშობელი', 'status'=>1])->with('subcategories');
     }
 }

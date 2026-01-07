@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Параметры</h1>
+                        <h1 class="m-0">მონაცემები</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url("/") }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="#">Обновление Информации</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url("/") }}">მთავარი</a></li>
+                            <li class="breadcrumb-item"><a href="#">ინფოს გაახლება</a></li>
                         </ol>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="col-md-6">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Обновление Информации</h3>
+                                <h3 class="card-title">ინფოს გაახლება</h3>
                             </div>
                             @if(Session::has('error_message'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
@@ -53,26 +53,26 @@
                             <form role="form" method="post" action="{{ url('/admin/update-admin-details') }}" name="updateAdminDetails" id="updateAdminDetails" enctype="multipart/form-data">@csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email адрес</label>
+                                        <label for="exampleInputEmail1">Email მისამართი</label>
                                         <input class="form-control" readonly="" value="{{ Auth::guard("admin")->user()->email }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Роль</label>
+                                        <label for="exampleInputEmail1">როლი</label>
                                         <input class="form-control" readonly="" value="{{ Auth::guard("admin")->user()->type }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Имя/Фамилия</label>
-                                        <input type="text" class="form-control" id="admin_name" name="admin_name" placeholder="Имя/Фамилия" required="" value="{{ Auth::guard("admin")->user()->name }}">
+                                        <label for="exampleInputPassword1">სახელი/გვარი</label>
+                                        <input type="text" class="form-control" id="admin_name" name="admin_name" placeholder="შეიყვანეთ სახელი/გვარი" required="" value="{{ Auth::guard("admin")->user()->name }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Телефон</label>
-                                        <input type="text" class="form-control" id="admin_mobile" name="admin_mobile" placeholder="Телефон" required="" value="{{ Auth::guard("admin")->user()->mobile }}">
+                                        <label for="exampleInputPassword1">ტელეფონი</label>
+                                        <input type="text" class="form-control" id="admin_mobile" name="admin_mobile" placeholder="შეიყვანეთ ტელეფონის ნომერი" required="" value="{{ Auth::guard("admin")->user()->mobile }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Фото</label>
+                                        <label for="exampleInputPassword1">ფოტო</label>
                                         <input type="file" class="form-control" id="admin_image" name="admin_image" accept="image/*">
                                         @if(!empty(Auth::guard('admin')->user()->image))
-                                            <a target="_blank" href="{{ url('images/admin_images/admin_photos/'.Auth::guard('admin')->user()->image) }}">Просмотр Фото</a>
+                                            <a target="_blank" href="{{ url('images/admin_images/admin_photos/'.Auth::guard('admin')->user()->image) }}">ფოტოს ნახვა</a>
                                             <input type="hidden" name="current_admin_image" value="{{ Auth::guard('admin')->user()->image }}">
                                         @endif
                                     </div>
@@ -80,7 +80,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Изменить</button>
+                                    <button type="submit" class="btn btn-primary">შეცვლა</button>
                                 </div>
                             </form>
                         </div>

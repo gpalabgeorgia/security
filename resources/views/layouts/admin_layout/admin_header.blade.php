@@ -6,7 +6,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('/admin/dashboard') }}" class="nav-link">Главная</a>
+            <a href="{{ url('/admin/dashboard') }}" class="nav-link">მთავარი</a>
         </li>
 
     </ul>
@@ -14,7 +14,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link" href="{{ url('admin/logout') }}" role="button">
-                Выход
+                გამოსვლა
             </a>
         </li>
     </ul>

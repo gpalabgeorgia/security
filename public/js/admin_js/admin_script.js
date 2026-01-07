@@ -29,12 +29,12 @@ $(document).ready(function() {
             data: {status:status,section_id:section_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#section-'+section_id).html('<a class="updateSectionStatus" href="javascript:void(0)">Неактивный</a>');
+                    $('#section-'+section_id).html('<a class="updateSectionStatus" href="javascript:void(0)">Inactive</a>');
                 }else if(resp['status']==1) {
-                    $('#section-'+section_id).html('<a class="updateSectionStatus" href="javascript:void(0)">Активный</a>');
+                    $('#section-'+section_id).html('<a class="updateSectionStatus" href="javascript:void(0)">Active</a>');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -48,12 +48,12 @@ $(document).ready(function() {
             data: {status:status,brand_id:brand_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#brand-'+brand_id).html('<i class="fas fa-toggle-off" aria-hidden="true" status="Неактивный"></i>');
+                    $('#brand-'+brand_id).html('<i class="fas fa-toggle-off" aria-hidden="true" status="Inactive"></i>');
                 }else if(resp['status']==1) {
-                    $('#brand-'+brand_id).html('<i class="fas fa-toggle-on" aria-hidden="true" status="Активный"></i>');
+                    $('#brand-'+brand_id).html('<i class="fas fa-toggle-on" aria-hidden="true" status="Active"></i>');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -67,12 +67,12 @@ $(document).ready(function() {
             data: {status:status,category_id:category_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#category-'+category_id).html('<a class="updateCategoryStatus" href="javascript:void(0)">Неактивный</a>');
+                    $('#category-'+category_id).html('<a class="updateCategoryStatus" href="javascript:void(0)">Inactive</a>');
                 }else if(resp['status']==1) {
-                    $('#category-'+category_id).html('<a class="updateCategoryStatus" href="javascript:void(0)">Активный</a>');
+                    $('#category-'+category_id).html('<a class="updateCategoryStatus" href="javascript:void(0)">Active</a>');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -86,12 +86,12 @@ $(document).ready(function() {
             data: {status:status,product_id:product_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#product-'+product_id).html('<a class="updateProductStatus" href="javascript:void(0)">Неактивный</a>');
+                    $('#product-'+product_id).html('<a class="updateProductStatus" href="javascript:void(0)">Inactive</a>');
                 }else if(resp['status']==1) {
-                    $('#product-'+product_id).html('<a class="updateProductStatus" href="javascript:void(0)">Активный</a>');
+                    $('#product-'+product_id).html('<a class="updateProductStatus" href="javascript:void(0)">Active</a>');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -105,12 +105,12 @@ $(document).ready(function() {
             data: {status:status,attribute_id:attribute_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#attribute-'+attribute_id).html('Неактивный');
+                    $('#attribute-'+attribute_id).html('Inactive');
                 }else if(resp['status']==1) {
-                    $('#attribute-'+attribute_id).html('Активный');
+                    $('#attribute-'+attribute_id).html('Active');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -124,12 +124,12 @@ $(document).ready(function() {
             data: {status:status,image_id:image_id},
             success: function(resp) {
                 if(resp['status']==0) {
-                    $('#image-'+image_id).html('Неактивный');
+                    $('#image-'+image_id).html('Inactive');
                 }else if(resp['status']==1) {
-                    $('#image-'+image_id).html('Активный');
+                    $('#image-'+image_id).html('Active');
                 }
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -144,7 +144,7 @@ $(document).ready(function() {
             success:function(resp) {
                 $('#appendCategoriesLevel').html(resp);
             },error: function() {
-                alert('Произошла ошибка!');
+                alert('წარმოიშვა შეცდომა!');
             }
         });
     });
@@ -153,13 +153,13 @@ $(document).ready(function() {
         let record = $(this).attr('record');
         let recordid = $(this).attr('recordid');
         Swal.fire({
-            title: "Хотите удалить?",
-            text: "Вы не сможете отменить удаление!",
+            title: "გსურთ წაშლა?",
+            text: "მოქმედებას ვეღარ გააუქმებთ!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Да, удалить!"
+            confirmButtonText: "დიახ, წაშალე!"
         }).then((result) => {
             if (result.value) {
                 window.location.href="/admin/delete-"+record+"/"+recordid;
@@ -171,7 +171,7 @@ $(document).ready(function() {
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div><div style="height: 10px;"></div><input type="text" name="size[]" style="width: 120px;" placeholder="Размер" required=""/>&nbsp;<input type="text" name="sku[]" style="width: 120px;" placeholder="SKU" required=""/>&nbsp;<input type="number" name="price[]" style="width: 120px;" placeholder="Цена" required=""/>&nbsp;<input type="number" name="stock[]" style="width: 120px;" placeholder="Количество" required=""/><a href="javascript:void(0);" class="remove_button">Удалить</a></div>'; //New input field html
+    var fieldHTML = '<div><div style="height: 10px;"></div><input type="text" name="size[]" style="width: 120px;" placeholder="ზომა" required=""/>&nbsp;<input type="text" name="sku[]" style="width: 120px;" placeholder="SKU" required=""/>&nbsp;<input type="number" name="price[]" style="width: 120px;" placeholder="ფასი" required=""/>&nbsp;<input type="number" name="stock[]" style="width: 120px;" placeholder="რაოდენობა" required=""/><a href="javascript:void(0);" class="remove_button">წაშლა</a></div>'; //New input field html
     var x = 1; //Initial field counter is 1
 
     // Once add button is clicked

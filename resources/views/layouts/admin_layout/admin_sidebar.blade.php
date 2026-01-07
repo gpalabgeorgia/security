@@ -19,7 +19,7 @@
                     <a href="{{ url('admin/dashboard') }}" class="nav-link {{ $active }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Панель
+                            პანელი
                         </p>
                     </a>
                 </li>
@@ -32,7 +32,7 @@
                     <a href="#" class="nav-link {{ $active }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Параметры
+                            მონაცემები
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/settings') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Обновление пароля</p>
+                                <p>პაროლის გაახლება</p>
                             </a>
                         </li>
                         @if(Session::get('page')=='update-admin-details')
@@ -56,7 +56,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/update-admin-details') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Обновление инфо</p>
+                                <p>ინფოს გაახლება</p>
                             </a>
                         </li>
                     </ul>
@@ -71,7 +71,7 @@
                     <a href="#" class="nav-link {{ $active }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Каталог
+                            კატალოგი
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -84,7 +84,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/sections') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Секции</p>
+                                <p>სექციები</p>
                             </a>
                         </li>
                         @if(Session::get('page')=='categories')
@@ -95,7 +95,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/categories') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Категории</p>
+                                <p>კატეგორიები</p>
                             </a>
                         </li>
                         @if(Session::get('page')=='brands')
@@ -106,7 +106,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/brands') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Бренды</p>
+                                <p>ბრენდები</p>
                             </a>
                         </li>
                         @if(Session::get('page')=='products')
@@ -117,7 +117,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/products') }}" class="nav-link {{ $active }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Продукты</p>
+                                <p>პროდუქტები</p>
                             </a>
                         </li>
                     </ul>

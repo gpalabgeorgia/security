@@ -18,7 +18,7 @@ class SectionController extends Controller
     public function updateSectionStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;

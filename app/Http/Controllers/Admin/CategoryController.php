@@ -20,7 +20,7 @@ class CategoryController extends Controller
     public function updateCategoryStatus(Request $request) {
         if($request->ajax()) {
             $data = $request->all();
-            if($data['status']=='Активный') {
+            if($data['status']=='Active') {
                 $status = 0;
             }else {
                 $status = 1;
@@ -33,20 +33,20 @@ class CategoryController extends Controller
     public function addEditCategory(Request $request, $id=null) {
         if($id=="") {
             // Add Category Functionality
-            $title = "Добавление категории";
+            $title = "კატეგორიის დამატება";
             $category = new Category;
             $categorydata = array();
             $getCategories = array();
-            $message = "Категория успешно добавилась!";
+            $message = "კატეგორია წარმატებით დაემატა!";
         }else {
             // Edit Category Functionality
-            $title = "Редактирование категории";
+            $title = "კატეგორიის რედაქტირება";
             $categorydata = Category::where('id', $id)->first();
             $categorydata = json_decode(json_encode($categorydata), true);
             $getCategories = Category::with('subcategories')->where(['parent_id'=>0, 'section_id'=>$categorydata['section_id']])->get();
             $getCategories = json_decode(json_encode($getCategories), true);
             $category = Category::find($id);
-            $message = "Категория успешно обновилась!";
+            $message = "კატეგორია წარმატებით გაახლდა!";
         }
         if($request->isMethod('post')) {
             $data = $request->all();
@@ -59,10 +59,10 @@ class CategoryController extends Controller
 
             ];
             $customMessages = [
-                'category_name.required' => 'Название категории объязательно',
-                'category_name.regex' => 'Валидное название объязательно',
-                'section_id.required' => 'Секция объязательна',
-                'url.required' => 'url объязателен',
+                'category_name.required' => 'კატეგორიის სახელი სავალდებულოა',
+                'category_name.regex' => 'ვალიდური სახელი სავალდებულოა',
+                'section_id.required' => 'სექცია სავალდებულოა',
+                'url.required' => 'url სავალდებულოა',
             ];
             $this->validate($request, $rules, $customMessages);
 
@@ -143,14 +143,14 @@ class CategoryController extends Controller
 
         // Delete category image from categories table
         Category::where('id', $id)->update(['category_image'=>'']);
-        $message = 'Фотография категории удалилась!';
+        $message = 'კატეგორიის ფოტო წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }
 
     public function deleteCategory($id) {
         Category::where('id', $id)->delete();
-        $message = 'Категроия удалилась!';
+        $message = 'კატეგორია წარმატებით წაიშალა!';
         session::flash('success_message', $message);
         return redirect()->back();
     }

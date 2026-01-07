@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Категории</h1>
+                        <h1>კატეგორიები</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                            <li class="breadcrumb-item active">Категории</li>
+                            <li class="breadcrumb-item"><a href="#">მთავარი</a></li>
+                            <li class="breadcrumb-item active">კატეგორიები</li>
                         </ol>
                     </div>
                 </div>
@@ -30,26 +30,26 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Категории</h3>
-                                <a href="{{ url('admin/add-edit-category') }}" style="max-width: 150px; float: right; display: inline-block;" class="btn btn-block btn-success">Добавить</a>
+                                <h3 class="card-title">კატეგორიები</h3>
+                                <a href="{{ url('admin/add-edit-category') }}" style="max-width: 150px; float: right; display: inline-block;" class="btn btn-block btn-success">დამატება</a>
                             </div>
                             <div class="card-body">
                                 <table id="categories" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Категория</th>
-                                        <th>Родительская Категория</th>
-                                        <th>Секция</th>
+                                        <th>კატეგორია</th>
+                                        <th>მშობელი კატეგორია</th>
+                                        <th>სექცია</th>
                                         <th>URL</th>
-                                        <th>Статус</th>
-                                        <th>Действия</th>
+                                        <th>სტატუსი</th>
+                                        <th>მოქმედებები</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($categories as $category)
                                         @if(!isset($category->parentcategory->category_name))
-                                            <?php $parent_category = "Родительская"; ?>
+                                            <?php $parent_category = "მშობელი"; ?>
                                         @else
                                                 <?php $parent_category = $category->parentcategory->category_name; ?>
                                         @endif
@@ -61,15 +61,15 @@
                                             <td>{{ $category->url }}</td>
                                             <td>
                                                 @if($category->status==1)
-                                                    <a class="updateCategoryStatus" id="category-{{ $category->id }}" category_id="{{ $category->id }}" href="javascript:void(0);">Активный</a>
+                                                    <a class="updateCategoryStatus" id="category-{{ $category->id }}" category_id="{{ $category->id }}" href="javascript:void(0);">Active</a>
                                                 @else
-                                                    <a class="updateCategoryStatus" id="category-{{ $category->id }}" category_id="{{ $category->id }}" href="javascript:void(0);">Неактивный</a>
+                                                    <a class="updateCategoryStatus" id="category-{{ $category->id }}" category_id="{{ $category->id }}" href="javascript:void(0);">Inactive</a>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ url("admin/add-edit-category/".$category->id) }}">Редактировать</a>
+                                                <a href="{{ url("admin/add-edit-category/".$category->id) }}">რედაქტირება</a>
                                                 &nbsp;&nbsp;
-                                                <a href="javascript:void(0)" class="confirmDelete" record="category" recordid="{{ $category->id }}">Удалить</a>
+                                                <a href="javascript:void(0)" class="confirmDelete" record="category" recordid="{{ $category->id }}">წაშლა</a>
                                             </td>
                                         </tr>
                                     @endforeach
