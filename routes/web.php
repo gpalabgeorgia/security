@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Front\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::prefix('/admin')->namespace('Admin')->group(function() {
 
@@ -77,4 +78,9 @@ Route::prefix('/admin')->namespace('Admin')->group(function() {
         Route::post('update-image-status', [ProductsController::class, 'updateImageStatus']);
         Route::get('delete-image/{id}', [ProductsController::class, 'deleteImage']);
     });
+});
+
+
+Route::namespace('front')->group(function() {
+    Route::get('/', [IndexController::class, 'index']);
 });
